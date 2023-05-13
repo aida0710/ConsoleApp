@@ -27,7 +27,7 @@ class Main extends Application {
 			'9' => exit,
 			default => $this->functionSelect(true),
 		};
-		if ($answer instanceof IFunction){
+		if ($answer instanceof IFunction) {
 			$answer->execute();
 		}
 		throw new RuntimeException('IFunctionを継承していないクラスが実装されています。');

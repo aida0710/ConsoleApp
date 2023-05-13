@@ -7,7 +7,7 @@ use Application;
 require_once __DIR__ . '/../Application.php';
 require_once __DIR__ . '/IFunction.php';
 
-class CmConversion extends Application implements IFunction{
+class CmConversion extends Application implements IFunction {
 
 	public function execute() : void {
 		$this->message('cmをinchに変換します。');
