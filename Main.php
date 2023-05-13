@@ -5,10 +5,13 @@ use functions\CmConversion;
 require_once __DIR__ . '/Application.php';
 require_once __DIR__ . '/functions/CmConversion.php';
 
-class Main extends Application{
+/**
+ * Mainクラスファイルを最初に実行してください
+ */
+class Main extends Application {
 
 	public function __construct() {
-		echo 'Main class loaded'. PHP_EOL;
+		echo 'Main class loaded' . PHP_EOL;
 	}
 
 	public function functionSelect(?bool $error = false) : void {
@@ -22,7 +25,6 @@ class Main extends Application{
 			'9' => exit,
 			default => $this->functionSelect(true),
 		};
-
 	}
 
 }
