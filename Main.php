@@ -1,8 +1,10 @@
 <?php
 
 use functions\CmConversion;
+use functions\IFunction;
 
 require_once __DIR__ . '/Application.php';
+require_once __DIR__ . '/functions/IFunction.php';
 require_once __DIR__ . '/functions/CmConversion.php';
 
 /**
@@ -21,10 +23,14 @@ class Main extends Application {
 			'9. 終了',
 		]);
 		match ($answer) {
-			'1' => (new CmConversion())->main(),
+			'1' => $answer = new CmConversion(),
 			'9' => exit,
 			default => $this->functionSelect(true),
 		};
+		if ($answer instanceof IFunction){
+			$answer->execute();
+		}
+		throw new RuntimeException('IFunctionを継承していないクラスが実装されています。');
 	}
 
 }

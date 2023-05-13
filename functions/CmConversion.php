@@ -5,10 +5,11 @@ namespace functions;
 use Application;
 
 require_once __DIR__ . '/../Application.php';
+require_once __DIR__ . '/IFunction.php';
 
-class CmConversion extends Application {
+class CmConversion extends Application implements IFunction{
 
-	public function main() : void {
+	public function execute() : void {
 		$this->message('cmをinchに変換します。');
 		$this->message('変換形式 -> "Size: approx. width x length x height cm (width x length x height in)"');
 		$width = $this->question('widthを入力してください。');
@@ -20,7 +21,7 @@ class CmConversion extends Application {
 		$this->message('変換が完了しました。終了したい場合はプログラムを強制停止してください。');
 		$this->message('Size: approx. ' . $width . ' x ' . $length . ' x ' . $height . ' cm (' . $width_inch . ' x ' . $length_inch . ' x ' . $height_inch . ' in)');
 		$this->message('');
-		$this->main();
+		$this->execute();
 	}
 
 }
